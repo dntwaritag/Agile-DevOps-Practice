@@ -20,6 +20,18 @@ app.get("/tasks", (req, res) => {
   res.json(tasks);
 });
 
+// US-3: Update a task's status
+const VALID_STATUSES = ["todo", "in-progress", "done"];
+app.patch("/tasks/:id", (req, res) => {
+  const { status } = req.body;
+  if (!VALID_STATUSES.includes(status)) {
+    return res.status(400).json({ error: `status must be one of ${VALID_STATUSES.join(", ")}` });
+  }
+  const task = store.updateStatus(req.params.id, status);
+  if (!task) return res.status(404).json({ error: "task not found" });
+  res.json(task);
+});
+
 module.exports = app;
 
 if (require.main === module) {
