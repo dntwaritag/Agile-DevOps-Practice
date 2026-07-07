@@ -4,6 +4,20 @@ const store = require("./store");
 const app = express();
 app.use(express.json());
 
+// Basic request logging (Sprint 1 retro improvement #1)
+app.use((req, res, next) => {
+  const start = Date.now();
+  res.on("finish", () => {
+    console.log(`${req.method} ${req.originalUrl} -> ${res.statusCode} (${Date.now() - start}ms)`);
+  });
+  next();
+});
+
+// US-6: Health check endpoint (Sprint 1 retro improvement #2)
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok", uptime: process.uptime() });
+});
+
 // US-1: Create a task
 app.post("/tasks", (req, res) => {
   const { title, description } = req.body;
@@ -14,9 +28,13 @@ app.post("/tasks", (req, res) => {
   res.status(201).json(task);
 });
 
-// US-2: View all tasks
+// US-2 + US-5: View all tasks, optionally filtered by status
 app.get("/tasks", (req, res) => {
-  const tasks = store.getAllTasks();
+  const { status } = req.query;
+  if (status && !VALID_STATUSES.includes(status)) {
+    return res.status(400).json({ error: `status must be one of ${VALID_STATUSES.join(", ")}` });
+  }
+  const tasks = store.getAllTasks(status);
   res.json(tasks);
 });
 
