@@ -32,6 +32,13 @@ app.patch("/tasks/:id", (req, res) => {
   res.json(task);
 });
 
+// US-4: Delete a task
+app.delete("/tasks/:id", (req, res) => {
+  const deleted = store.deleteTask(req.params.id);
+  if (!deleted) return res.status(404).json({ error: "task not found" });
+  res.status(204).send();
+});
+
 module.exports = app;
 
 if (require.main === module) {
