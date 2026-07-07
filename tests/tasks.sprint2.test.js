@@ -41,4 +41,9 @@ describe("Sprint 2 - delete, filter, health, logging", () => {
     expect(res.body.status).toBe("ok");
     expect(typeof res.body.uptime).toBe("number");
   });
+
+  test("US-1 extension: task defaults to normal priority", async () => {
+  const res = await request(app).post("/tasks").send({ title: "Check priority" });
+  expect(res.body.priority).toBe("normal");
+});
 });

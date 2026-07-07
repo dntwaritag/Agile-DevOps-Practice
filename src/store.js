@@ -9,11 +9,12 @@ function reset() {
   nextId = 1;
 }
 
-function createTask({ title, description = "" }) {
+function createTask({ title, description, priority = "normal" }) {
   const task = {
     id: nextId++,
     title,
     description,
+    priority,
     status: "todo", // todo | in-progress | done
     createdAt: new Date().toISOString(),
   };
