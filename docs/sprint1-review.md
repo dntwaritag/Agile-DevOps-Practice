@@ -46,8 +46,8 @@ curl -X PATCH localhost:3000/tasks/1 \
 
 **What went wrong**
 - No input validation on the `description` field (accepts anything, even wrong types).
-- No logging — hard to trace what happened after a request without breakpoints.
+- No logging; hard to trace what happened after a request without breakpoints.
 
 **Improvements to carry into Sprint 2**
-1. Add basic request logging so behavior in "production" is traceable.
+1. Add basic request logging so behaviour in "production" is traceable.
 2. Add a health check endpoint so uptime/monitoring is possible, and tighten input validation.
