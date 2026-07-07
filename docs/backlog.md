@@ -16,7 +16,7 @@ personal tasks, so they can stay organized without needing a full app.
 | US-6 | As a user, I want a health check endpoint, so that the system's uptime can be monitored. | 2 | Low |
 
 Estimation used relative sizing (1–5 points), based on: amount of work,
-complexity, and risk/uncertainty — consistent with standard Scrum estimation.
+complexity, and risk/uncertainty consistent with standard Scrum estimation.
 
 ## Acceptance Criteria (examples)
 

@@ -1,9 +1,9 @@
 # Sprint 1 – Review
 
 ## Stories delivered
-- US-1: Create task ✅
-- US-2: View all tasks ✅
-- US-3: Update task status ✅
+- US-1: Create task 
+- US-2: View all tasks 
+- US-3: Update task status 
 
 ## Demo (sample requests)
 
@@ -33,10 +33,10 @@ curl -X PATCH localhost:3000/tasks/1 \
 ## Definition of Done check
 | Item | Status |
 |------|--------|
-| Code committed incrementally | ✅ (4 separate commits) |
-| Tests written and passing | ✅ 5/5 |
-| CI pipeline configured | ✅ |
-| Acceptance criteria met | ✅ |
+| Code committed incrementally | &#x2714; (4 separate commits) |
+| Tests written and passing |  &#x2714; 5/5 |
+| CI pipeline configured | &#x2714; |
+| Acceptance criteria met | &#x2714; |
 
 ## Sprint Retrospective
 

@@ -1,13 +1,13 @@
 # Sprint 2 – Review
 
 ## Improvements applied from Sprint 1 retro
-1. Added request logging middleware — every request now logs method, path, status code, and response time.
+1. Added request logging middleware every request now logs method, path, status code, and response time.
 2. Added a `/health` endpoint and tightened input validation (status filter is now validated too).
 
 ## Stories delivered
-- US-4: Delete task ✅
-- US-5: Filter tasks by status ✅
-- US-6: Health check + monitoring/logging ✅
+- US-4: Delete task 
+- US-5: Filter tasks by status 
+- US-6: Health check + monitoring/logging 
 
 ## Demo (sample requests)
 
@@ -39,21 +39,21 @@ PATCH /tasks/1 -> 200 (0ms)
 ## Definition of Done check
 | Item | Status |
 |------|--------|
-| Retro improvements applied | ✅ |
-| Code committed incrementally | ✅ (3 more commits) |
-| Tests written and passing | ✅ 10/10 total |
-| Monitoring/logging in place | ✅ |
-| Acceptance criteria met | ✅ |
+| Retro improvements applied | &#x2714; |
+| Code committed incrementally | &#x2714; (3 more commits) |
+| Tests written and passing |  &#x2714; 10/10 total |
+| Monitoring/logging in place | &#x2714; |
+| Acceptance criteria met | &#x2714; |
 
 ## Sprint 2 Retrospective
 
 **What went well**
-- Applying last sprint's retro items first (logging, health check) paid off immediately — debugging was easier this sprint.
+- Applying last sprint's retro items first (logging, health check) paid off immediately debugging was easier this sprint.
 - Filtering and deletion were simple to add on top of the existing store module, showing the value of separating data logic from routes.
 
 **What went wrong**
 - Data is still in-memory only; all tasks are lost on restart. Fine for this assessment, but not production-ready.
-- No authentication/authorization — anyone can hit any endpoint.
+- No authentication/authorization anyone can hit any endpoint.
 
 **Lessons learned / future improvements**
 1. Swap the in-memory store for a real database (e.g., SQLite/Postgres) to persist data.
